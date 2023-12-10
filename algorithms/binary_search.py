@@ -1,8 +1,19 @@
 import time
 time_start = time.time()
 
+def sorting(arr):
+    n = len(arr)
+    for i in range(n-1):
+        change = False
+        for j in range(n-1-i):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                change = True
+        if change == True:
+            break
+
+
 def binary_search(l:list,n_toFind:int):
-    l.sort()
     i_izq = 0
     i_rgt = len(l) - 1 
 
@@ -22,5 +33,5 @@ def binary_search(l:list,n_toFind:int):
 listD = []
 for i in range(0,100):
     listD.append(i)
-
-print(binary_search(listD,54))
+sorting(listD)
+print(binary_search((listD),54))
